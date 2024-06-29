@@ -16,7 +16,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -36,19 +35,19 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Customer customer = new Customer();
-        customer.setName("John Doe");
-        customer.setPhoneNumber("123456789");
+        customer.setName("InitJohn Doe");
+        customer.setPhoneNumber("987654321");
         customer = customerRepository.save(customer);
 
         Pet pet = new Pet();
-        pet.setName("Buddy");
+        pet.setName("InitBuddy");
         pet.setType(PetType.DOG);
         pet.setBirthDate(LocalDate.now());
         pet.setOwner(customer);
         pet = petRepository.save(pet);
 
         Employee employee = new Employee();
-        employee.setName("Jane Doe");
+        employee.setName("InitJane Doe");
         employee.setSkills(new HashSet<>(Arrays.asList(EmployeeSkill.FEEDING, EmployeeSkill.PETTING)));
         employee.setDaysAvailable(new HashSet<>(Arrays.asList(DayOfWeek.MONDAY, DayOfWeek.TUESDAY)));
         employee = employeeRepository.save(employee);
